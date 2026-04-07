@@ -1,21 +1,21 @@
 const projects = [
   {
-    title: "Project One",
-    description: "A brief description of what this project does and the problem it solves.",
+    title: "Project one",
+    description: "A short description of what this project does and the problem it solves.",
     tag: "React",
     github: "https://github.com/AlexUrbaez13",
-    live: "#"
+    live: "https://next-pokedex-neon.vercel.app/"
   },
   {
-    title: "Project Two",
-    description: "A brief description of what this project does and the problem it solves.",
+    title: "Project two",
+    description: "A short description of what this project does and the problem it solves.",
     tag: "JavaScript",
     github: "https://github.com/AlexUrbaez13",
     live: "#"
   },
   {
-    title: "Project Three",
-    description: "A brief description of what this project does and the problem it solves.",
+    title: "Project three",
+    description: "A short description of what this project does and the problem it solves.",
     tag: "CSS",
     github: "https://github.com/AlexUrbaez13",
     live: "#"
@@ -24,19 +24,21 @@ const projects = [
 
 function Projects() {
   return (
-    <section id="projects" className="py-12 border-t border-gray-200">
-      <p className="text-xs text-gray-400 uppercase tracking-widest mb-6">Selected Projects</p>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <section id="projects" className="py-16 border-t border-white/8">
+      <div className="flex items-center gap-3 mb-4">
+        <span className="w-5 h-px bg-[#e07b39]"></span>
+        <span className="text-[11px] text-[#e07b39] uppercase tracking-widest">Portfolio</span>
+      </div>
+      <h2 className="text-3xl font-medium tracking-tight mb-8">My best projects.</h2>
+      <div className="grid grid-cols-3 gap-3">
         {projects.map((project, index) => (
-          <div key={index} className="border border-gray-200 rounded-xl p-5">
-            <span className="text-xs px-3 py-1 rounded-full bg-blue-50 text-blue-600 mb-3 inline-block">
-              {project.tag}
-            </span>
-            <h3 className="font-medium text-sm mb-2">{project.title}</h3>
-            <p className="text-gray-500 text-xs leading-relaxed mb-4">{project.description}</p>
-            <div className="flex gap-2">
-              <a href={project.github} target="_blank" rel="noreferrer" className="text-xs px-3 py-1 border border-gray-200 rounded-md text-gray-500 hover:text-black">GitHub</a>
-              <a href={project.live} className="text-xs px-3 py-1 border border-gray-200 rounded-md text-gray-500 hover:text-black">Live</a>
+          <div key={index} className="bg-[#161616] border border-white/7 rounded-xl p-6 flex flex-col gap-3 hover:border-white/15">
+            <div className="text-[11px] text-white/25">0{index + 1}</div>
+            <h3 className="text-sm font-medium">{project.title}</h3>
+            <p className="text-xs text-white/40 leading-relaxed flex-1">{project.description}</p>
+            <div className="flex justify-between items-center pt-3 border-t border-white/7">
+              <span className="text-[11px] text-[#e07b39]">{project.tag}</span>
+             <a href={project.live} target="_blank" rel="noreferrer" className="text-xs text-white/30 hover:text-white">↗</a>
             </div>
           </div>
         ))}
