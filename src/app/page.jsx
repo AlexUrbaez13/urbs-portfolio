@@ -1,12 +1,9 @@
-import './App.css'
-import Projects from './components/Projects'
+import Projects from '../components/Projects'
 
-function App() {
+export default function HomePage() {
   return (
     <div className="bg-[#0d0d0d] min-h-screen text-white">
       <div className="max-w-4xl mx-auto px-8">
-
-        {/* Navbar */}
         <nav className="flex justify-between items-center py-7 border-b border-white/8">
           <span className="text-sm font-medium tracking-wide">Alex Urbaez</span>
           <div className="flex gap-8">
@@ -15,7 +12,6 @@ function App() {
           </div>
         </nav>
 
-        {/* Hero */}
         <section className="py-24">
           <div className="flex items-center gap-3 mb-6">
             <span className="w-7 h-px bg-[#e07b39]"></span>
@@ -34,7 +30,6 @@ function App() {
           </div>
         </section>
 
-        {/* Stats */}
         <div className="flex gap-16 py-10 border-t border-b border-white/8 mb-16">
           <div>
             <div className="text-3xl font-medium">3<span className="text-[#e07b39]">+</span></div>
@@ -50,10 +45,8 @@ function App() {
           </div>
         </div>
 
-        {/* Projects */}
         <Projects />
 
-        {/* Skills */}
         <section className="py-16 border-t border-white/8">
           <div className="flex items-center gap-3 mb-4">
             <span className="w-5 h-px bg-[#e07b39]"></span>
@@ -61,7 +54,7 @@ function App() {
           </div>
           <h2 className="text-3xl font-medium tracking-tight mb-8">What I work with.</h2>
           <div className="flex flex-wrap gap-2">
-            {['HTML', 'CSS', 'JavaScript', 'React', 'Tailwind', 'Git', 'Vite', 'Responsive design'].map(skill => (
+            {['HTML', 'CSS', 'JavaScript', 'React', 'Tailwind', 'Git', 'Next.js', 'Responsive design'].map(skill => (
               <span key={skill} className="text-xs px-5 py-2 rounded-full border border-white/10 text-white/50 bg-[#161616]">
                 {skill}
               </span>
@@ -69,7 +62,6 @@ function App() {
           </div>
         </section>
 
-        {/* Contact */}
         <section id="contact" className="py-16 border-t border-white/8">
           <div className="flex items-center gap-3 mb-4">
             <span className="w-5 h-px bg-[#e07b39]"></span>
@@ -90,15 +82,11 @@ function App() {
           </div>
         </section>
 
-        {/* Footer */}
         <footer className="py-8 border-t border-white/8 flex justify-between">
           <span className="text-xs text-white/25">Alex Urbaez — 2026</span>
           <span className="text-xs text-white/25">Web Developer</span>
         </footer>
-
       </div>
     </div>
   )
 }
-
-export default App
