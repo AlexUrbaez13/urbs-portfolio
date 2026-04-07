@@ -19,10 +19,9 @@ function Projects() {
 
           <div className="w-full h-40 flex items-center justify-center bg-black">
             <img
-              src="/pokedex.png"
-              alt="Pokedex preview"
-              className="max-h-full w-auto object-contain"
-            />
+src="https://api.microlink.io/?url=https://next-pokedex-neon.vercel.app/&screenshot=true&meta=false&embed=screenshot.url"
+  className="w-full h-full object-cover object-top"
+/>
           </div>
 
           <div className="p-6 flex flex-col gap-3 flex-1">
