@@ -1,7 +1,47 @@
+"use client"
+
+import { useState } from "react"
 import Projects from '../components/Projects'
 import FloatingNavBar from "../components/FloatingNavBar"
 
 export default function HomePage() {
+  const [loading, setLoading] = useState(false)
+  const [success, setSuccess] = useState(false)
+
+ async function handleSubmit(e) {
+  e.preventDefault()
+  setLoading(true)
+  setSuccess(false)
+  setError(false)
+
+  const formData = new FormData(e.target)
+
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: formData.get("name"),
+        email: formData.get("email"),
+        message: formData.get("message"),
+      }),
+    })
+
+    if (res.ok) {
+      setSuccess(true)
+      e.target.reset()
+    } else {
+      setError(true)
+    }
+  } catch (err) {
+    setError(true)
+  }
+
+  setLoading(false)
+}
+
   return (
     <div className="bg-[#0d0d0d] min-h-screen text-white relative overflow-hidden">
       <FloatingNavBar />
@@ -15,7 +55,7 @@ export default function HomePage() {
             height: '600px',
             borderRadius: '50%',
             background:
-              'radial-gradient(circle, rgba(224,123,57,0.08) 0%, transparent 70%)',
+              'radial-gradient(circle, rgba(255, 107, 8, 0.08) 0%, transparent 70%)',
             top: '-100px',
             left: '-100px',
             animation: 'float1 8s ease-in-out infinite',
@@ -183,14 +223,14 @@ export default function HomePage() {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+          <div className="flex justify-between items-start gap-8">
             <div>
               <h2 className="text-3xl font-medium tracking-tight mb-3">
-                Open to frontend roles & freelance work.
+                Let's work together.
               </h2>
               <p className="text-sm text-white/40 leading-relaxed max-w-sm">
-                Have a role, project, or collaboration in mind? Send me a message
-                and I’ll get back to you.
+                Open to new opportunities and collaborations. Reach out and let's
+                build something great.
               </p>
 
               <div className="flex gap-3 mt-6">
@@ -215,39 +255,44 @@ export default function HomePage() {
             </div>
 
             <form
-              action="https://formspree.io/f/YOUR_ID"
-              method="POST"
-              className="flex flex-col gap-3 w-full"
+              onSubmit={handleSubmit}
+              className="flex flex-col gap-2 items-end w-full max-w-xs"
             >
               <input
-                type="text"
                 name="name"
-                placeholder="Your name"
+                placeholder="Name"
                 required
-                className="bg-[#161616] border border-white/10 px-4 py-3 rounded-md text-sm text-white placeholder:text-white/25 outline-none focus:border-[#e07b39] transition-all"
+                className="w-full bg-[#161616] border border-white/10 px-3 py-2 rounded-md text-xs text-white placeholder:text-white/25 outline-none focus:border-[#e07b39]"
               />
 
               <input
-                type="email"
                 name="email"
-                placeholder="Your email"
+                type="email"
+                placeholder="Email"
                 required
-                className="bg-[#161616] border border-white/10 px-4 py-3 rounded-md text-sm text-white placeholder:text-white/25 outline-none focus:border-[#e07b39] transition-all"
+                className="w-full bg-[#161616] border border-white/10 px-3 py-2 rounded-md text-xs text-white placeholder:text-white/25 outline-none focus:border-[#e07b39]"
               />
 
               <textarea
                 name="message"
-                placeholder="Your message"
+                placeholder="Message"
                 required
-                className="bg-[#161616] border border-white/10 px-4 py-3 rounded-md text-sm text-white placeholder:text-white/25 h-32 resize-none outline-none focus:border-[#e07b39] transition-all"
+                className="w-full bg-[#161616] border border-white/10 px-3 py-2 rounded-md text-xs text-white placeholder:text-white/25 h-24 resize-none outline-none focus:border-[#e07b39]"
               />
 
               <button
                 type="submit"
-                className="glow-btn bg-[#e07b39] text-white py-3 rounded-md text-sm font-medium transition-all"
+                disabled={loading}
+                className="glow-link text-xs text-white/40 px-5 py-2.5 border border-white/10 rounded-md bg-[#161616] transition-all disabled:opacity-50"
               >
-                Send Message
+                {loading ? "Sending..." : "Send"}
               </button>
+
+              {success && (
+                <p className="text-green-400 text-xs mt-1">
+                  Message sent ✓
+                </p>
+              )}
             </form>
           </div>
         </section>
