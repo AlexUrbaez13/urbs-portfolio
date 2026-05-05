@@ -7,6 +7,7 @@ import FloatingNavBar from "../components/FloatingNavBar"
 export default function HomePage() {
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
+const [error, setError] = useState(false)
 
  async function handleSubmit(e) {
   e.preventDefault()
@@ -288,11 +289,16 @@ export default function HomePage() {
                 {loading ? "Sending..." : "Send"}
               </button>
 
-              {success && (
-                <p className="text-green-400 text-xs mt-1">
-                  Message sent ✓
-                </p>
-              )}
+             {success && (
+  <p className="text-green-400 text-xs mt-1 animate-fade-in">
+    Message sent — I’ll get back to you soon.
+  </p>
+)}
+{error && (
+  <p className="text-red-400 text-xs mt-1">
+    Something went wrong. Try again.
+  </p>
+)}
             </form>
           </div>
         </section>

@@ -29,7 +29,7 @@ function Projects() {
               Pokedex
             </h3>
             <p className="text-xs text-white/40 leading-relaxed flex-1">
-              A Next.js Pokedex app that lets you browse and search all Pokemon.
+              Built a dynamic Pokédex app using Next.js and React Query with advanced filtering, caching, and optimized data fetching to improve performance and user experience.
             </p>
 
             <div className="flex justify-between items-center pt-3 border-t border-white/7">
@@ -62,7 +62,7 @@ function Projects() {
               HighCaliber
             </h3>
             <p className="text-xs text-white/40 leading-relaxed flex-1">
-              A YouTube-focused web app with a cleaner interface and custom project branding.
+              Built an AI-powered search system for YouTube content using OpenAI and Next.js, improving discovery and performance.
             </p>
 
             <div className="flex justify-between items-center pt-3 border-t border-white/7">
