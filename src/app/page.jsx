@@ -284,7 +284,7 @@ const [error, setError] = useState(false)
               <button
                 type="submit"
                 disabled={loading}
-                className="glow-link text-xs text-white/40 px-5 py-2.5 border border-white/10 rounded-md bg-[#161616] transition-all disabled:opacity-50"
+                className="glow-link text-xs text-white/40 px-5 py-2.5 border border-white/10 rounded-md bg-[#161616] transition-all disabled:opacity-50 cursor-pointer"
               >
                 {loading ? "Sending..." : "Send"}
               </button>
